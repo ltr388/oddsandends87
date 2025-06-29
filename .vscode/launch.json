@@ -1,0 +1,73 @@
+{
+    "configurations": [
+        {
+            "name": "Attach to Edge",
+            "port": 9222,
+            "request": "attach",
+            "type": "msedge",
+            "webRoot": "/Users/ltr/.vscode",
+        },
+        {
+            "program": "/usr/bin/gdb",
+            "MIMode": "gdb",
+            "name": "Launch",
+            "processId": "${command:pickProcess}",
+            "request": "attach",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "ignoreFailures": true,
+                    "text": "-enable-pretty-printing"
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "ignoreFailures": true,
+                    "text": "-gdb-set disassembly-flavor intel"
+                }
+            ],
+            "type": "cppdbg"
+        },
+        {
+            "program": "gdb",
+            "name": "(gdb) Bash on Windows Attach",
+            "pipeTransport": {
+                "debuggerPath": "/usr/bin/gdb",
+                "pipeArgs": [
+                    "-c"
+                ],
+                "pipeCwd": "",
+                "pipeProgram": "${env:windir}\\system32\\bash.exe"
+            },
+            "processId": "${command:pickRemoteProcess}",
+            "request": "attach",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "ignoreFailures": true,
+                    "text": "-enable-pretty-printing"
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "ignoreFailures": true,
+                    "text": "-gdb-set disassembly-flavor intel"
+                }
+            ],
+            "type": "cppdbg"
+        },
+        {
+            "name": "Launch Chrome",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:80",
+            "webRoot": "E:/Documents/GitHub/libyaml/src"
+        },
+        {
+            "name": "Launch Edge against localhost",
+            "request": "launch",
+            "type": "msedge",
+            "url": "http://localhost:80",
+            "webRoot": "E:/Documents/GitHub/libyaml/src"
+        }
+    ],
+    "version": "0.2.0"
+}
